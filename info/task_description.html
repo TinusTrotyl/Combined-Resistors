@@ -1,6 +1,77 @@
 <p>
 You have to write a piece of code, a function "combine(list, number)" which is given:
-&nbsp;<br />a list of the available resistors and the requested value and returns a string describing the combination searched for.
-&nbsp;<br />The returned string shall be made up of functions describing how all is connected. The combination shall be made entirely of parallel and series connections (for simplicity "bridged circuitry" is not needed).
-&nbsp;<br />These two functions to do so are:
 </p>
+
+<p>
+a list of the available resistors and the requested value and returns a string describing the combination searched for.
+</p>
+
+<p>
+The returned string shall be made up of functions describing how all is connected. The combination shall be made entirely of parallel and series connections (for simplicity so called "bridged circuitry" is not needed).
+</p>
+
+<p>
+These two functions to do so are:
+</p>
+
+<pre class="brush: python">
+"series(*a)" for series connections where "*a" is R1, R2, R3, ....      
+"parallel(*a)" for parallel connections where "*a" is R1, R2, R3, ....
+(A single resistor can be represented by its value alone.)
+</pre>
+
+<div class="for_info_only">
+    <p>
+        <strong>A few examples :</strong>
+    </p>
+
+<pre class="brush: python">
+combine([3, 3, 6], 5) == "series(3, parallel(3, 6))"
+
+combine([20, 20, 30, 30], 24) == "series(parallel(20, 30), parallel(20, 30))"
+                              or "parallel(series(20, 20), series(30, 30))"
+
+combine([12, 12, 12, 12], 3) == "parallel(12, 12, 12, 12)"
+                             or "parallel(parallel(12, 12), parallel(12, 12))"
+
+combine([24, 12], 12) == "12"   # (one single resistor)
+
+combine([6, 9], 12) == "None"   # (Sorry, can't be done)
+</pre>
+
+<p>
+<strong>The on the mission involved mathematics :</strong>
+</p>
+
+<p>
+You can calculate the total resistance of two resistors (R1, R2) series connected (Rs) by:
+</p>
+    
+<pre class="brush: python">
+Rs = R1 + R2
+</pre>
+
+<p>
+And the calculation for two resistors (R1, R2) parallel connected (Rp) is:
+</p>
+
+<pre class="brush: python">
+Rp = 1 / (1 / R1 + 1 / R2)
+</pre>
+
+<p>
+Which can albo be written as :
+</p>
+  
+<pre class="brush: python">
+Rp = R1 * R2 / (R1 + R2)
+</pre>
+
+<p>
+<strong>How it is used:</strong><br>
+Electric circuirtry.
+</p
+
+<ul>
+</ul>
+</div>
