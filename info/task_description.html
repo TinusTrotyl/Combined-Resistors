@@ -5,19 +5,19 @@ Combined Resistors.
 </h>
 
 <p>
-The spaceship's crew is in serious trouble now since the electronic circuit board for warp-speed-engine-control has blown and they're stalled in outer space.
+The spaceship's crew is in serious trouble now since the electronic circuit board for warp-speed-engine-control has blown and they're stalled in outher space.
 </p>
 
 <p>
-One resistor on the printed cicuit board has turned into smoking carbon but luckily someone found in the service docs what value it has to replace it with.
+One resistor on the printed cicuit board has turned into a pile of smoking carbon but luckily someone found in the service documents what value it has to replace it with.
 </p>
 
 <p>
-And then, after hours of searching the box with spare parts, the horrified conclusion is that the requested resistor is not there !!!
+And then, after hours searching thru the box with spare parts over and over, the horrified conclusion is that the requested resistor is not there !!!
 </p>
 
 <p>
-However maybe . . . will they be able to make a combination of resistors as a replacement and save their souls?
+However maybe . . . will they be able to make a combination of resistors which then will serve as a replacement and save their souls?
 </p>
 
 <h>
@@ -27,15 +27,15 @@ The Mission :
 </h>
 
 <p>
-You have to write a piece of code, a function "combine(list, number)" which is given:
+Now it's up to you have to write a piece of code: function "combine(box: tuple, requested: int) -> str" which is given:
 </p>
 
 <p>
-a list of the available resistors and the requested value and returns a string describing the combination searched for.
+the box of the available resistors (as a tuple) and the requested value (as a int) and returns a string describing the searched for combination.
 </p>
 
 <p>
-The returned string shall be made up of functions describing how all is connected. The combination shall be made entirely of parallel and series connections (for simplicity so called "bridged circuitry" is not needed).
+The returned string shall be made up of functions describing how the contents of the box can be connected to achieve the reqested result (which may also represented by just a single number). The combination shall be made entirely of parallel and series connections (for simplicity so called "bridged circuitry" is not needed).
 </p>
 
 <p>
@@ -62,9 +62,9 @@ combine([20, 20, 30, 30], 24) == "series(parallel(20, 30), parallel(20, 30))"
 combine([12, 12, 12, 12], 3) == "parallel(12, 12, 12, 12)"
                              or "parallel(parallel(12, 12), parallel(12, 12))"
 
-combine([24, 12], 12) == "12"   # (one single resistor)
+combine([24, 12], 12) == "12"   # (One single resistor.)
 
-combine([6, 9], 12) == "None"   # (Sorry, can't be done)
+combine([6, 9], 12) == "None"   # (Oh no, can't be done!)
 </pre>
 
 <p>
