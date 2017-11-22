@@ -54,18 +54,19 @@ These two functions to do so are:
     </p>
 
 <pre class="brush: python">
-combine([3, 3, 6], 5) == "series(3, parallel(3, 6))"
+combine((3, 3, 6), 5) == "series(3, parallel(3, 6))"
 
-combine([20, 20, 30, 30], 24) == "series(parallel(20, 30), parallel(20, 30))"
+combine((20, 20, 30, 30), 24) == "series(parallel(20, 30), parallel(20, 30))"
                               or "parallel(series(20, 20), series(30, 30))"
 
-combine([12, 12, 12, 12], 3) == "parallel(12, 12, 12, 12)"
+combine((12, 12, 12, 12), 3) == "parallel(12, 12, 12, 12)"
                              or "parallel(parallel(12, 12), parallel(12, 12))"
 
-combine([24, 12], 12) == "12"   # (One single resistor.)
+combine((24, 12), 12) == "12"   # (One single resistor.)
 
-combine([6, 9], 12) == "None"   # (Oh no, can't be done!)
+combine((6, 9), 12) == "None"   # (Oh no, can't be done!)
 </pre>
+</div>
 
 <p>
 <strong>The on the mission involved mathematics :</strong>
@@ -75,25 +76,25 @@ combine([6, 9], 12) == "None"   # (Oh no, can't be done!)
 You can calculate the total resistance of two resistors (R1, R2) series connected (Rs) by:
 </p>
     
-<pre class="brush: python">
+<p>
+<strong>
 Rs = R1 + R2
-</pre>
+</strong>
+</p>
 
 <p>
 And the calculation for two resistors (R1, R2) parallel connected (Rp) is:
 </p>
 
-<pre class="brush: python">
-Rp = 1 / (1 / R1 + 1 / R2)
-</pre>
-
 <p>
+<strong>
+Rp = 1 / (1 / R1 + 1 / R2)
+</strong>
 Which can also be written as :
-</p>
-  
-<pre class="brush: python">
+<strong>
 Rp = R1 * R2 / (R1 + R2)
-</pre>
+</strong>
+</p>
 
 <p>
 <strong>How it is used:</strong><br>
@@ -102,4 +103,4 @@ Electric circuitry.
 
 <ul>
 </ul>
-</div>
+
