@@ -11,12 +11,12 @@ TESTS = {
         {
             "input": [(1, 1), 2],
             "answer": "series(1, 1)",
-            "explanation": ["1 + 1 == 2"],
+            """explanation": ["1 + 1 == 2"],"""
         },
         {
             "input": [(2, 2), 1],
             "answer": "parallel(2, 2)",
-            "explanation": ["2 * 2 / (2 + 2) == 1"],
+            """explanation": ["2 * 2 / (2 + 2) == 1"],"""
         },
     ],
     "Extra": [
