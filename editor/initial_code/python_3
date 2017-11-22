@@ -1,8 +1,8 @@
-def combined_resitors(box: tuple, requested: int) -> str:
+def combine(box: tuple, requested: int) -> str:
     
     # Your code
     
-    return combination
+    return your_combination
 
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
