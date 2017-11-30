@@ -36,73 +36,25 @@
 </p>
 </div>
 
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">You have to write a function `<strong>combine: </strong><strong>box, ohms &rarr;</strong><strong> combination`</strong></span></span></p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">where `box` is a list of lists representing the box of spare parts, `ohms` the requested resistor and `combination` a list describing the wiring of the components.</span></span></p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">Single numbers is the list are series connected. Sub-lists however are</span></span></p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">parallel forks of series connected components and parallel sub-lists again.</span></span></p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">Thus in each list: items are series, lists are recursive parallel branches.</span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: small;">You have to write a function `<strong>combine: </strong><strong>box, ohms &rarr;</strong><strong> combination`</strong></span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: small;">where `box` is a list of lists representing the box of spare parts, `ohms` the requested resistor and `combination` a list describing the wiring of the components.</span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: small;">Single numbers is the list are series connected. Sub-lists however are</span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: small;">parallel forks of series connected components and parallel sub-lists again.</span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: small;">Thus in each list: items are series, lists are recursive parallel branches.</span></span></p>
+
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><strong>A few examples:</strong></span></span></p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;"><strong>A few examples:</strong></span></span></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">R1 series R2 = . . . . . . . [1, 2] (fig.1)</span></span></p>
-<p>&nbsp;</p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">R1 and R2 parallel = . . . . . [[1], [2]] (fig.2)</span></span></p>
-<p>&nbsp;</p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">R1 series (R2 parallel R3) = . . . [1, [[2], [3]] (fig.3)</span></span></p>
-<p>&nbsp;</p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">(R1 series R2) parallel (R3 series R4) = [[1, 2], [3, 4]] (fig.4)</span></span></p>
-<p>&nbsp;</p>
-<p><span style="font-family: 'Liberation Mono', monospace;"><span style="font-size: small;">(R1 parallel R3) series (R2 parallel R4) = [[1], [3]], [[2], [4]]] (fig.5)</span></span></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New', monospace;"><span style="font-size: small;">R1 series R2 = [1, 2] (fig.1) </span></span></p>
+<p><span style="font-family: 'Courier New', monospace;"><span style="font-size: small;">R1 and R2 parallel = [[1], [2]] (fig.2)</span></span></p>
+<p><span style="font-family: 'Courier New', monospace;"><span style="font-size: small;">R1 series (R2 parallel R3) = [1, [[2], [3]] (fig.3)</span></span></p>
+<p><span style="font-family: 'Courier New', monospace;"><span style="font-size: small;">(R1 series R2) parallel (R3 series R4) = [[1, 2], [3, 4]] (fig.4)</span></span></p>
+<p><span style="font-family: 'Courier New', monospace;"><span style="font-size: small;">(R1 parallel R3) series (R2 parallel R4) = [[1], [3]], [[2], [4]]] (fig.5)</span></span></p>
 
 <p style="text-align: center;">
     <img  title="examples" src="{{MEDIA}}examples.png" alt="examples" style="max-height: 240px"/>
 </p>
 
-<p>
-   Yyou have to write a piece of code: function "combine(box: tuple, requested: int) -> str" which is given:
-</p>
 
-<p>
-the box of the available resistors (as a tuple) and the requested value (as a int) and returns a string describing the searched for combination.
-</p>
-
-<p>
-The returned string shall be made up of functions describing how the contents of the box can be connected to achieve the reqested result (which may also represented by just a single number). The combination shall be made entirely of parallel and series connections (for simplicity so called "bridged circuitry" is not needed).
-</p>
-
-<p>
-These two functions to do so are:
-</p>
-
-<pre class="brush: python">
-"series(*a)" for series connections where "*a" is R1, R2, R3, ....      
-"parallel(*a)" for parallel connections where "*a" is R1, R2, R3, ....
-(A single resistor can be represented by its value alone.)
-</pre>
-
-<div class="for_info_only">
-    <p>
-        <strong>A few examples :</strong>
-    </p>
-
-<pre class="brush: python">
-combine((3, 3, 6), 5) == "series(3, parallel(3, 6))"
-
-combine((20, 20, 30, 30), 24) == "series(parallel(20, 30), parallel(20, 30))"
-                              or "parallel(series(20, 20), series(30, 30))"
-
-combine((12, 12, 12, 12), 3) == "parallel(12, 12, 12, 12)"
-                             or "parallel(parallel(12, 12), parallel(12, 12))"
-
-combine((24, 12), 12) == "12"   # (One single resistor.)
-
-combine((6, 9), 12) == "None"   # (Oh no, can't be done!)
-</pre>
-</div>
 
 <p>
 <strong>The on the mission involved mathematics :</strong>
