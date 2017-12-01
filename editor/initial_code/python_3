@@ -1,17 +1,16 @@
-def combine(box: tuple, requested: int) -> str:
+def combine(box: tuple, requested: int) -> []:
     
     # Your code
     
-    return your_combination
+    return [your_combination]
 
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
-    assert( combine((2, 3, 3), 3) == "3") ,  "hey, 3 is in the box !"
-    assert( combine((3, 3, 6), 5) == "series(3, parallel(3, 6))" )
-    assert( combine((33, 33, 66), 66) == "66") , "66 is less complicated then series(33, 33)"
-    assert( combine((20, 20, 30, 30), 24) == "series(parallel(20, 30), parallel(20, 30))" or
-            combine((20, 20, 30, 30), 24) == "parallel(series(20, 20), series(30, 30))" ), "There two are ways to do it, one or another, it's up to you."                
-    assert( combine((6, 9), 12) == "None", "Oh no . . . it can't be done !"
+    assert( combine((2, 3, 3), 3) == "[3]") ,  "hey, 3 is in the box !"
+    assert( combine((3, 3, 6), 5) == "[3, [2, 3]]" )
+    assert( combine((20, 20, 30, 30), 24) == "[[[20], [30]], [[20,] [30]]]" or
+            combine((20, 20, 30, 30), 24) == "[[20, 20], [30, 30]]" ), "There two are ways to do it, one or another, it's up to you."                
+    assert( combine((6, 9), 12) == "[]", "Oh no . . . it can't be done !"
             
     print('Wow, "Run" looks good. How is "Check"?')
